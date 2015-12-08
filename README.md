@@ -10,7 +10,7 @@ First, clone the repo `git clone https://github.com/SAP/cloud-autoscaler`.
 Use Maven to build it.
 Deploy the WAR file on your HCP account.
 
-> Please be mindful that the scaler uses two APIs provided by HCP, therefore two destinations should be created, named **hcprestapi** and **hcpmonitoringapi**. You can simply import the destinations we provide here and here, just add your user name and password.
+> Please be mindful that the scaler uses two APIs provided by HCP, therefore two destinations should be created, named **hcprestapi** and **hcpmonitoringapi**. You can simply import the destinations we provide [here](https://github.com/SAP/cloud-autoscaler/blob/master/src/main/resources/destinations/hcprestapi.destination) and [here](https://github.com/SAP/cloud-autoscaler/blob/master/src/main/resources/destinations/hcpmonitoringapi.destination), just add your user name and password.
 
 
 ### Usage ###
