@@ -1,0 +1,7 @@
+Description=HCP Monitoring REST API
+Type=HTTP
+Authentication=BasicAuthentication
+Name=hcpmonitoringapi
+CloudConnectorVersion=2
+ProxyType=Internet
+URL=https\://monitoring.neo.ondemand.com/monitoring

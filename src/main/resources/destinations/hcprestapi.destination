@@ -1,0 +1,7 @@
+Description=HCP Lifecycle REST API
+Type=HTTP
+Authentication=BasicAuthentication
+Name=hcprestapi
+CloudConnectorVersion=2
+ProxyType=Internet
+URL=https\://api.neo.ondemand.com/lifecycle/v1
