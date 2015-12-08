@@ -23,7 +23,7 @@ Then press the **Get & Update Application Info** button. A JSON string should ha
 
 Now there are three buttons, that are pretty much self-explanatory (**Start Monitoring**, **Start New Process** and **Stop Process**).
 
-If you wish to quickly test the elastic scaler, you can do that by forcing it to scale down an application. Just start a new process of your application using the given button, and then press the **Start Monitoring** button. Supposing that your application has just one running instance and it doesn't consume too many resources (or at least not that many that it needs scaling), then it wouldn't meet the thresholds for keeping a second instance running. If that is the case, then once the second process is started, you will notice that the scaler will shut down one of the two automatically.
+If you wish to quickly test the elastic scaler, you can do that by forcing it to scale down an application. Just start a new process of your application using the given button, and then press the **Start Monitoring** button. Supposing that your application has just one running instance and it doesn't consume too many resources (or at least not that many that it needs up-scaling), then it wouldn't meet the thresholds for keeping a second instance running. If that is the case, then once the second process is started, you will notice that the scaler will shut down one of the two automatically.
 
 That's basically it!
 
