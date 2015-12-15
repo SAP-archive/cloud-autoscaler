@@ -8,7 +8,7 @@ import org.json.JSONObject;
 
 public class MetricUtils {
 
-	protected static String DEFAULT_METRICS = "default-metrics";
+	protected static String DEFAULT_METRICS = "metrics";//"default-metrics";
 	protected static String USER_DEFINED_METRICS = "user-defined-metrics";
 	
 	/**
@@ -18,7 +18,14 @@ public class MetricUtils {
 	 * @return JSONArray a JSON array of the metrics
 	 */
 	public static JSONArray getDefaultMetrics(String stringObj) {
-		return (new JSONObject(stringObj.toString())).getJSONArray(DEFAULT_METRICS);
+		JSONArray returnJSONArray;
+		try {
+			returnJSONArray = (new JSONArray(stringObj.toString())).getJSONObject(0).getJSONArray(DEFAULT_METRICS);
+		} catch (Exception e) {
+			// just return an empty json array
+			returnJSONArray = new JSONArray();
+		}
+		return returnJSONArray;
 	}
 	
 	/**
@@ -88,10 +95,6 @@ public class MetricUtils {
 	 */
 	private static JSONArray getAllMetrics(String metricsObj) {
 		JSONArray allMetrics = getDefaultMetrics(metricsObj);
-		JSONArray customMetrics = getUserDefinedMetrics(metricsObj);
-		for (int i = 0; i < customMetrics.length(); i++) {
-			allMetrics.put(customMetrics.get(i));
-		}
 		return allMetrics;
 	}
 
@@ -105,7 +108,7 @@ public class MetricUtils {
 		int i = 0;
 		while (!metricsArray.isNull(i)) {
 			JSONObject metric = metricsArray.getJSONObject(i++);
-			returnMap.put(metric.getString("name"), Integer.parseInt(metric.getString("value")));
+			returnMap.put(metric.getString("name"), metric.getInt("value"));
 		}
 		return returnMap;
 	}

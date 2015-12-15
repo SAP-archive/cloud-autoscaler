@@ -126,8 +126,9 @@ public class AppData {
 	private synchronized String getCurrentMetricsForProcess(String pid) {
 		String updatedMetrics = "";
 		try {
-			HttpResponse response = httpClient.makeGETCall(httpClient.monDestination(), "/metrics/application/" + account 
-					+ "/" + app	+ "/_null/" + pid);
+			HttpResponse response = httpClient.makeGETCall(httpClient.monDestination(), "/accounts/" + account + "/apps/" 
+					+ app + "/processes/" + pid + "/metrics");
+				//"/metrics/application/" + account + "/" + app	+ "/_null/" + pid);
 			BufferedReader rd = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
 			
 			StringBuilder returnMess = new StringBuilder();

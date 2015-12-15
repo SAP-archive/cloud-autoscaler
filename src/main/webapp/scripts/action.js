@@ -202,7 +202,7 @@ function InfoPanel(id) {
 function Actions() {
 	var intervalId;
 	function startMonitorDataPolling() {
-		intervalId = setInterval(getMonitorData, 5000);
+		intervalId = setInterval(getMonitorData, 20000);
 	}
 
 	function stopMonitorDataPolling() {

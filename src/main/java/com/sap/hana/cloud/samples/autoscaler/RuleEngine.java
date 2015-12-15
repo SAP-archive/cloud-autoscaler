@@ -9,12 +9,12 @@ import java.util.Properties;
 import javax.servlet.ServletContext;
 
 public class RuleEngine {
-	private static Map<String, Integer> upscaleThresholds = new HashMap<>();
-	private static Map<String, Integer> downscaleThresholds = new HashMap<>();
-	private static String DEFAULT_THRESHOLDS_FILE_LOCATION = "/WEB-INF/lib/params.properties";
-	private static String DEFAULT_METRIC = "cpu_utilization";
-	private static String DEFAULT_METRIC_VALUE = "25,50";
+	public static Map<String, Integer> upscaleThresholds = new HashMap<>();
+	public static Map<String, Integer> downscaleThresholds = new HashMap<>();
+	public static String DEFAULT_METRIC = "CPU Load";
+	public static String DEFAULT_METRIC_VALUE = "25,50";
 	
+	private static String DEFAULT_THRESHOLDS_FILE_LOCATION = "/WEB-INF/lib/params.properties";
 	private static enum ruleNames { UPSCALE, DOWNSCALE };
 	
 	/**
@@ -59,10 +59,10 @@ public class RuleEngine {
 	public static boolean upScaleRuleFulfilled(Map<String, Map<String, Integer>> pidMetrics) {
 		for (String pid : pidMetrics.keySet()) {
 			if (!runRule(pidMetrics.get(pid), ruleNames.UPSCALE)) {
-				System.out.println("Upscale rule NOT fulfilled for pid: " + pid + " at " + pidMetrics.get(pid).get("busy_threads") + "%");
+//				System.out.println("Upscale rule NOT fulfilled for pid: " + pid);
 				return false;
 			}
-			System.out.println("Upscale rule fulfilled for pid: " + pid + " at " + pidMetrics.get(pid).get("busy_threads") + "%");
+			System.out.println("Upscale rule fulfilled for pid: " + pid);
 		}
 		
 		return true;
@@ -76,10 +76,10 @@ public class RuleEngine {
 	public static boolean downScaleRuleFulfilled(Map<String, Map<String, Integer>> pidMetrics) {
 		for (String pid : pidMetrics.keySet()) {
 			if (!runRule(pidMetrics.get(pid), ruleNames.DOWNSCALE)) {
-				System.out.println("Downscale rule NOT fulfilled for pid: " + pid + " at " + pidMetrics.get(pid).get("busy_threads") + "%");
+//				System.out.println("Downscale rule NOT fulfilled for pid: " + pid);
 				return false;
 			}
-			System.out.println("Downscale rule fulfilled for pid: " + pid + " at " + pidMetrics.get(pid).get("busy_threads") + "%");
+			System.out.println("Downscale rule fulfilled for pid: " + pid);
 		}
 		return true;
 	}

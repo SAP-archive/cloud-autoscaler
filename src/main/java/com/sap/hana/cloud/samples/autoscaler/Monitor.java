@@ -31,7 +31,7 @@ public class Monitor implements Runnable {
 				appData.getAppInfo(true);
 				appData.updateCurrentMetrics();
 				try2Scale();
-				Thread.sleep(5000);
+				Thread.sleep(30000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 				runFlag = false;
