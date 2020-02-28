@@ -1,3 +1,8 @@
+![](https://img.shields.io/badge/STATUS-NOT%20CURRENTLY%20MAINTAINED-red.svg?longCache=true&style=flat)
+
+# Important Notice
+We have decided to stop the maintenance of this public GitHub repository.
+
 ## HCP Automatic Application Scaler ##
 
 This is an example application that demonstrates how elastic horizontal scaling can be achieved on the SAP HANA Cloud platform using the platform-provided APIs for [Lifecycle Management](https://api.hana.ondemand.com/lifecycle/v1/documentation) and [Monitoring](https://api.hana.ondemand.com/monitoring/v1/documentation).
